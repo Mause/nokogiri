@@ -2,7 +2,8 @@ require 'rbconfig'
 
 $hdrdir = RbConfig::CONFIG["rubyhdrdir"]
 puts "Original hdrdir: #{$hdrdir}"
-RbConfig::CONFIG["rubyhdrdir"] = File.join("@TERMUX_PREFIX@", "include", "ruby-#{RbConfig::CONFIG['ruby_version']}")
+$ruby_version = '3.4.0'
+RbConfig::CONFIG["rubyhdrdir"] = File.join("@TERMUX_PREFIX@", "include", "ruby-#{$ruby_version}")
 $hdrdir = RbConfig::CONFIG["rubyhdrdir"]
 puts "Using rubyhdrdir=#{$hdrdir}"
 puts "include children: #{Dir.children(File.join("@TERMUX_PREFIX@", "include"))}"

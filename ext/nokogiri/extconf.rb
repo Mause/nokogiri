@@ -1149,6 +1149,22 @@ unless config_system_libraries?
   end
 end
 
+puts "Configuration summary:"
+puts "  - using system libraries: #{config_system_libraries?}"
+puts "  - using static linking: #{static_p}"
+puts "  - using cross build: #{cross_build_p}"
+puts "  - other library versions: #{other_library_versions_string}"
+puts "  - cppflags: #{$CPPFLAGS}"
+puts "  - ldflags: #{$LDFLAGS}"
+puts "  - libs: #{$libs}"
+puts "  - incflags: #{$INCFLAGS}"
+puts "  - archflags: #{RbConfig::CONFIG["ARCH_FLAG"]}"
+puts "  - ruby version: #{RbConfig::CONFIG["ruby_version"]}"
+puts "  - ruby platform: #{RbConfig::CONFIG["ruby_platform"]}"
+puts "  - ruby host: #{RbConfig::CONFIG["host"]}"
+puts "  - ruby target: #{RbConfig::CONFIG["target"]}"
+puts "  - ruby config: #{RbConfig::CONFIG.inspect}"
+
 create_makefile("nokogiri/nokogiri")
 
 if config_clean?

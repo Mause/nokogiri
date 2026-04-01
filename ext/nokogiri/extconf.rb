@@ -3,7 +3,7 @@
 # rubocop:disable Style/GlobalVars
 
 ENV["RC_ARCHS"] = "" if RUBY_PLATFORM.include?("darwin")
-RbConfig::CONFIG["rubyhdrdir"] = File.join(ENV["TERMUX_PREFIX"], "include", "ruby-#{RbConfig::CONFIG['ruby_version']}")
+RbConfig::CONFIG["rubyhdrdir"] = File.join("@TERMUX_PREFIX@", "include", "ruby-#{RbConfig::CONFIG['ruby_version']}")
 
 require "mkmf"
 require "rbconfig"

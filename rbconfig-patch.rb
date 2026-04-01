@@ -1,5 +1,7 @@
 require 'rbconfig'
 
+$hdrdir = RbConfig::CONFIG["rubyhdrdir"]
+puts "Original hdrdir: #{$hdrdir}"
 RbConfig::CONFIG["rubyhdrdir"] = File.join("@TERMUX_PREFIX@", "include", "ruby-#{RbConfig::CONFIG['ruby_version']}")
 $hdrdir = RbConfig::CONFIG["rubyhdrdir"]
 puts "Using rubyhdrdir=#{$hdrdir}"

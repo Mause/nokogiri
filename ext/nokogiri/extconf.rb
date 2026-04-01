@@ -7,6 +7,7 @@ rubyhdrdir = File.join("@TERMUX_PREFIX@", "include", "ruby-3.4.0")
 RbConfig::CONFIG["rubyhdrdir"] = rubyhdrdir
 RbConfig::CONFIG["rubyarchhdrdir"] = File.join(rubyhdrdir, "aarch64-linux-android")
 puts "Using rubyhdrdir=#{$rubyhdrdir}"
+RbConfig::CONFIG['MKMF_VERBOSE'] = "1"
 
 require "mkmf"
 require "rbconfig"

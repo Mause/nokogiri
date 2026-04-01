@@ -4,6 +4,7 @@
 
 ENV["RC_ARCHS"] = "" if RUBY_PLATFORM.include?("darwin")
 RbConfig::CONFIG["rubyhdrdir"] = File.join("@TERMUX_PREFIX@", "include", "ruby-#{RbConfig::CONFIG['ruby_version']}")
+puts "Using rubyhdrdir=#{RbConfig::CONFIG['rubyhdrdir']}"
 
 require "mkmf"
 require "rbconfig"

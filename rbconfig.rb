@@ -1,0 +1,2 @@
+require 'rbconfig'
+puts 'aaaaaaaaaaaaaa'

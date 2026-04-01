@@ -3,8 +3,10 @@
 # rubocop:disable Style/GlobalVars
 
 ENV["RC_ARCHS"] = "" if RUBY_PLATFORM.include?("darwin")
-RbConfig::CONFIG["rubyhdrdir"] = File.join("@TERMUX_PREFIX@", "include", "ruby-#{RbConfig::CONFIG['ruby_version']}")
-puts "Using rubyhdrdir=#{RbConfig::CONFIG['rubyhdrdir']}"
+rubyhdrdir = File.join("@TERMUX_PREFIX@", "include", "ruby-#{RbConfig::CONFIG['ruby_version']}")
+RbConfig::CONFIG["rubyhdrdir"] = rubyhdrdir
+RbConfig::CONFIG["rubyarchhdrdir"] = File.join(rubyhdrdir, "aarch64-linux-android")
+puts "Using rubyhdrdir=#{$rubyhdrdir}"
 
 require "mkmf"
 require "rbconfig"

@@ -14,7 +14,7 @@ RbConfig::CONFIG.each do |key, value|
   if value.include? flag
     msg = "bad flag in RbConfig::CONFIG[#{key}], will remove: #{value}"
     puts msg
-    RbConfig::CONFIG[key] = value.sub! (" " + flag, "")
+    RbConfig::CONFIG[key] = value.sub!(" " + flag, "")
   end
 end
 

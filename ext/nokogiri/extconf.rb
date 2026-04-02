@@ -9,8 +9,10 @@ RbConfig::CONFIG["rubyarchhdrdir"] = File.join(rubyhdrdir, "aarch64-linux-androi
 puts "Using rubyhdrdir=#{rubyhdrdir}"
 RbConfig::CONFIG['MKMF_VERBOSE'] = "1"
 
-if RbConfig::CONFIG['CXXFLAGS'].include? 'cf-protection'
-  abort 'bad flag detected'
+RbConfig::CONFIG.each do |key, value|
+  if value.include?("cf-protection")
+    abort "bad flag in RbConfig::CONFIG[#{key}]: #{value}"
+  end
 end
 
 require "mkmf"

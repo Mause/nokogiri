@@ -9,11 +9,12 @@ RbConfig::CONFIG["rubyarchhdrdir"] = File.join(rubyhdrdir, "aarch64-linux-androi
 puts "Using rubyhdrdir=#{rubyhdrdir}"
 RbConfig::CONFIG['MKMF_VERBOSE'] = "1"
 
+flag = '-fcf-protection'
 RbConfig::CONFIG.each do |key, value|
-  if value.include?("cf-protection")
+  if value.include? flag
     msg = "bad flag in RbConfig::CONFIG[#{key}], will remove: #{value}"
     puts msg
-    RbConfig::CONFIG[key] = value.sub! " -cf-protection", ""
+    RbConfig::CONFIG[key] = value.sub! (" " + flag, "")
   end
 end
 

@@ -12,6 +12,7 @@ RbConfig::CONFIG['MKMF_VERBOSE'] = "1"
 RbConfig::CONFIG.each do |key, value|
   if value.include?("cf-protection")
     msg = "bad flag in RbConfig::CONFIG[#{key}], will remove: #{value}"
+    puts msg
     RbConfig::CONFIG[key] = value.sub! " -cf-protection", ""
   end
 end
